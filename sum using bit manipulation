@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int cmp(const void *p,const void *q)
+    {
+    return (*(int*)p -*(int*)q);
+}
+int main() 
+{
+    int n,i,j;
+    scanf("%d",&n);
+    
+    int max=pow(2,n);
+    int arr[n];
+    int brr[max];
+        
+    for(i=0;i<n;i++)
+        {
+        scanf("%d",&arr[i]);
+        
+    }
+
+         
+for(i=1;i<max;i++)
+    {
+    int sum=0;
+   for(j=0;j<n;j++)
+       {
+       if(i & (1<<j))
+           sum+=arr[j];
+           
+   }
+    brr[i]=sum;
+    
+}
+    
+        qsort(brr,max,sizeof(arr[0]),cmp);
+    
+       for(i=1;i<max;i++)
+           {
+           printf("%d ",brr[i]);
+       }
+
+    
+    return 0;
+}
+
